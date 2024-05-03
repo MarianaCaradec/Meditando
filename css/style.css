@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+
+h1, h2, h3 {
+    font-family: "Quicksand", sans-serif;
+}
+h1 {
+    font-size: 3.2rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 2.4rem;
+}
+p, .enlaces{
+    font-family: "Dosis", sans-serif;
+    font-size: 2.2rem;
+}
+
+.header {
+    height: 60rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra-navegacion{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.banner {
+    background-image: url(./../img/loto-banner.jpg);
+    width: 100vw;
+    height: 70vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.logo {
+    position: absolute;
+}
+
+.img-logo {
+    width: 7vw;
+}
+.navegacion {
+    display: flex;
+    gap: 2rem;
+}
+.enlace {
+    position: absolute;
+    text-decoration: none;
+    font-size: 2.4rem;
+}
+
+.texto {
+    font-size: 3.2rem;
+    font-family: "Quicksand", sans-serif;;
+}
+
+.seccion {
+    width: 50vw;
+}
+
+.hidden {
+    display: none;
+}
