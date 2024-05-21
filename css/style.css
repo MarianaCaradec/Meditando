@@ -22,17 +22,10 @@ p, .enlaces{
 }
 
 .header {
-    height: 60rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.barra-navegacion{
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "logo enlaces"
+                        "texto texto";
 }
 
 .banner {
@@ -44,26 +37,27 @@ p, .enlaces{
     background-position: center center;
 }
 
-.logo {
-    position: absolute;
+.navegacion {
+    display:f flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.img-logo {
-    width: 7vw;
-}
-.navegacion {
-    display: flex;
-    gap: 2rem;
-}
-.enlace {
+.logo {
     position: absolute;
-    text-decoration: none;
-    font-size: 2.4rem;
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-logo {
+    width: 5vw;
 }
 
 .texto {
     font-size: 3.2rem;
     font-family: "Quicksand", sans-serif;;
+    grid-area: texto;
 }
 
 .seccion {
