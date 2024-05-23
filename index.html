@@ -25,14 +25,26 @@
         </div>
     </header>
 
-    <div id="main">
-        <p>Precio: <span id="precio"></span></p>
-        <button id="comprar">Comprar paquete</button>
-    </div>
+    <div id="app">
+        <form class="ingreso" id="form">
+            <label for="user" class="user">Usuario:</label>
+            <input type="text" class="user" id="user" required><br>
+            <label for="password" class="password">Contraseña:</label>
+            <input type="password" class="password" id="password" required><br>
+            <label for="experiencia" class="checkbox">¿Tienes experiencia?</label>
+            <input type="checkbox" class="checkbox" id="experiencia"><br>
+            <button class="boton-ingreso" id="submit">Ingresar</button>
+        </form>
 
-    <div id="main-no-expertos" class="hidden">
-        <p>Precio: <span id="precio"></span></p>
-        <button id="comprar">Comprar paquete</button>
+        <div id="main">
+            <!-- <p>Precio: <span id="precio"></span></p> -->
+            <!-- <button class="compra" id="comprar">Comprar paquete</button> -->
+        </div>
+    
+        <div id="main-no-expertos">
+            <!-- <p>Precio: <span id="precio"></span></p> -->
+            <!-- <button class="compra" id="comprar">Comprar paquete</button> -->
+        </div>
     </div>
 
     <script src="./js/script.js"></script>

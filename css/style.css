@@ -4,6 +4,10 @@
     font-size: 62.5%;
 }
 
+body {
+    background-color: #B865B8;
+}
+
 h1, h2, h3 {
     font-family: "Quicksand", sans-serif;
 }
@@ -16,16 +20,15 @@ h2 {
 h3{
     font-size: 2.4rem;
 }
-p, .enlaces{
+p{
     font-family: "Dosis", sans-serif;
     font-size: 2.2rem;
 }
 
 .header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "logo enlaces"
-                        "texto texto";
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .banner {
@@ -37,15 +40,7 @@ p, .enlaces{
     background-position: center center;
 }
 
-.navegacion {
-    display:f flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .logo {
-    position: absolute;
-    grid-area: logo;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,14 +51,56 @@ p, .enlaces{
 
 .texto {
     font-size: 3.2rem;
-    font-family: "Quicksand", sans-serif;;
-    grid-area: texto;
+    font-family: "Quicksand", sans-serif;
+}
+
+.ingreso {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2rem;
+    -webkit-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
+    -moz-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
+    box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
+    width: 50vw;
+    height: 25vh;
+    margin: 2rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.user, .password, .checkbox, .boton-ingreso {
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+}
+
+.user {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.password {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.checkbox {
+    grid-column: span;
+    grid-row: 3 / 4;
+}
+.boton-ingreso {
+    grid-column: span;
 }
 
 .seccion {
     width: 50vw;
 }
 
-.hidden {
-    display: none;
+.img-curso {
+    width: 10rem;
+}
+
+.link-curso {
+    font-size: 2.4rem;
 }
