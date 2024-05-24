@@ -1,54 +1,71 @@
 let main = document.getElementById('main');
 let mainNoExpertos = document.getElementById('main-no-expertos');
 
+const cursos = [
+    {
+        titulo: 'Libera el estrés - Nivel inicial',
+        img: 'img/liberar-estres.jpg',
+        imgClass: 'img-curso',
+        imgAlt: 'libera estres',
+        descripcion: 'Es crucial liberar el estrés para mantener un equilibrio físico, mental y emocional. El estrés crónico puede tener efectos perjudiciales en nuestra salud, desde problemas físicos como dolores de cabeza y problemas digestivos, hasta consecuencias emocionales como la ansiedad y la depresión. Al liberar el estrés, podemos mejorar nuestra calidad de vida, fortalecer nuestro sistema inmunológico y promover un estado mental más positivo. Además, reduce la probabilidad de enfermedades relacionadas con el estrés, como enfermedades cardíacas y trastornos del sueño.',
+        precio: 'Precio: $5000',
+        comprado: false
+    },
+    {
+        titulo: 'Mejora la calidad de tu sueño - Nivel: intermedio',
+        img: 'img/mejorar-sueño.jpg',
+        imgClass: 'img-curso',
+        imgAlt: 'mejorar el sueño',
+        descripcion: 'Mejorar la calidad del sueño es crucial para nuestra salud física, mental y emocional. Un buen sueño promueve la salud física al reparar el cuerpo y fortalecer el sistema inmunológico, además de regular el metabolismo. A nivel mental, el sueño adecuado mejora la función cognitiva, la memoria y la concentración. También influye en nuestro estado de ánimo, reduciendo la irritabilidad y la ansiedad, y mejorando la salud mental en general. Además, el sueño adecuado facilita la recuperación muscular y del ejercicio, fortalece el sistema inmunológico y nos ayuda a mantenernos sanos y resistentes a las enfermedades.',
+        precio: 'Precio: $7000',
+        comprado: false
+    },
+    {
+        titulo: 'Detente a experimentar tus emociones - Nivel: elevado',
+        img: 'img/experimentar-emociones.jpg',
+        imgClass: 'img-curso',
+        imgAlt: 'experimentar emociones',
+        descripcion: 'Al experimentar conscientemente nuestras emociones, podemos aprender a manejar el estrés, mejorar nuestras relaciones interpersonales y aumentar nuestra autoconciencia. A través de la práctica de la atención plena y la autoexploración emocional, podemos cultivar una mayor comprensión y aceptación de nosotros mismos, lo que nos permite vivir de manera más auténtica y satisfactoria.',
+        precio: 'Precio: $10000',
+        comprado: false
+    },
+    {
+        titulo: 'Emprende el viaje de sanar - Nivel: elevado',
+        img: 'img/sanar.jpg',
+        imgClass: 'img-curso',
+        imgAlt: 'sanar',
+        descripcion: 'Al embarcarnos en este viaje de sanación, podemos sanar nuestras relaciones, fortalecer nuestra autoestima y liberarnos de patrones negativos que nos limitan. La sanación espiritual nos conecta con nuestro ser más profundo y nos ayuda a encontrar un propósito más elevado en la vida. A medida que nos sanamos emocionalmente y espiritualmente, podemos experimentar una mayor alegría, satisfacción y plenitud en todas las áreas de nuestra vida.',
+        precio: 'Precio: $12000',
+        comprado: false
+    }
+]
+
 const crearMain = () => {
-    const sectionInicial = document.createElement('div');
-    sectionInicial.className = 'seccion';
-    const img = document.createElement('img');
-    img.src = 'img/liberar-estres.jpg';
-    img.className = 'img-curso';
-    sectionInicial.innerHTML = `
-                                <h3>Libera el estrés - Nivel inicial</h3>
-                                <img src=${img.src} class= "img-curso" alt="libera estres">
-                                <p>Es crucial liberar el estrés para mantener un equilibrio físico, mental y emocional. El estrés crónico puede tener efectos perjudiciales en nuestra salud, desde problemas físicos como dolores de cabeza y problemas digestivos, hasta consecuencias emocionales como la ansiedad y la depresión. Al liberar el estrés, podemos mejorar nuestra calidad de vida, fortalecer nuestro sistema inmunológico y promover un estado mental más positivo. Además, reduce la probabilidad de enfermedades relacionadas con el estrés, como enfermedades cardíacas y trastornos del sueño. </p>
-                            `;
+    cursos.forEach(curso => {
+        const section = document.createElement('div');
+        section.className = 'curso';
+        section.innerHTML = `
+                            <h3>${curso.titulo}</h3>
+                            <img class= '${curso.imgClass}'src= ${curso.img} alt= ${curso.imgAlt}>
+                            <p>${curso.descripcion}</p>
+                            <p>${curso.precio}</p>
+                            <button id= 'boton-compra'>Comprar</button>
+                            `
 
-    const sectionUno = document.createElement('div');
-    sectionUno.className = 'seccion';
-    const imgUno = document.createElement('img');
-    imgUno.src = 'img/mejorar-sueño.jpg';
-    imgUno.className = 'img-curso';
-    sectionUno.innerHTML = `
-                                <h3>Mejora la calidad de tu sueño - Nivel: intermedio</h3>
-                                <img src=${imgUno.src} class= "img-curso" alt="mejorar el sueño">
-                                <p>Mejorar la calidad del sueño es crucial para nuestra salud física, mental y emocional. Un buen sueño promueve la salud física al reparar el cuerpo y fortalecer el sistema inmunológico, además de regular el metabolismo. A nivel mental, el sueño adecuado mejora la función cognitiva, la memoria y la concentración. También influye en nuestro estado de ánimo, reduciendo la irritabilidad y la ansiedad, y mejorando la salud mental en general. Además, el sueño adecuado facilita la recuperación muscular y del ejercicio, fortalece el sistema inmunológico y nos ayuda a mantenernos sanos y resistentes a las enfermedades.</p>
-                            `;
+        const comprar = section.querySelector('#boton-compra');
+        comprar.addEventListener('click', () => {
+            if(!cursos.comprado) {
+                cursos.comprado = true;
+                comprar.disabled = true;
+                const mensaje = document.createElement('p');
+                mensaje.innerHTML = 'Adquirido'
+                comprar.parentElement.appendChild(mensaje);
+            }
+            });
 
-    const sectionDos = document.createElement('div');
-    sectionDos.className = 'seccion';
-    const imgDos = document.createElement('img');
-    imgDos.src = 'img/experimentar-emociones.jpg';
-    imgDos.className = 'img-curso';
-    sectionDos.innerHTML = `
-                                <h3>Detente a experimentar tus emociones - Nivel: elevado</h3>
-                                <img src=${imgDos.src} class= "img-curso" alt="experimentar emociones">
-                                <p>Al experimentar conscientemente nuestras emociones, podemos aprender a manejar el estrés, mejorar nuestras relaciones interpersonales y aumentar nuestra autoconciencia. A través de la práctica de la atención plena y la autoexploración emocional, podemos cultivar una mayor comprensión y aceptación de nosotros mismos, lo que nos permite vivir de manera más auténtica y satisfactoria.</p>
-                            `;
+        main.append(section)
+    })
 
-
-    const sectionTres = document.createElement('div');
-    sectionTres.className = 'seccion';
-    const imgTres = document.createElement('img');
-    imgTres.src = 'img/sanar.jpg';
-    imgTres.className = 'img-curso';
-    sectionTres.innerHTML = `
-                                <h3>Emprende el viaje de sanar - Nivel: elevado</h3>
-                                <img src=${imgTres.src} class= "img-curso" alt="sanar">
-                                <p>Al embarcarnos en este viaje de sanación, podemos sanar nuestras relaciones, fortalecer nuestra autoestima y liberarnos de patrones negativos que nos limitan. La sanación espiritual nos conecta con nuestro ser más profundo y nos ayuda a encontrar un propósito más elevado en la vida. A medida que nos sanamos emocionalmente y espiritualmente, podemos experimentar una mayor alegría, satisfacción y plenitud en todas las áreas de nuestra vida.</p>
-                            `;
-
-
-    main.append(sectionInicial, sectionUno, sectionDos, sectionTres)
 }
 
 const crearMainNoExpertos = () => {
@@ -68,9 +85,8 @@ const crearMainNoExpertos = () => {
     mainNoExpertos.append(textoNoExpertos, section)
 }
 
-crearMain()
-crearMainNoExpertos()
-
+// function compra(comprar)
+// } 
 
 let datos = JSON.parse(localStorage.getItem('datos')) || [];
 
@@ -102,9 +118,11 @@ function iniciar() {
         if(experienciaIngresada.checked){
             main.style.display = 'block';
             mainNoExpertos.style.display = 'none';
+            crearMain();
         } else if(!experienciaIngresada.checked) {
             main.style.display = 'none';
             mainNoExpertos.style.display = 'block';
+            crearMainNoExpertos();
         }
     })
 
@@ -113,37 +131,3 @@ function iniciar() {
 
 iniciar()
 
-let precios = [];
-let precioMax = 12000;
-let precioMin = 4000;
-
-function preciosCompra(){
-        // let precio = document.createElement('p');
-        // precio.className = 'precio'
-        const precio = {
-            peso: Math.round(Math.random() * (precioMax - precioMin) + precioMin),
-            comprado: false
-        }
-        precios.push(precio)
-    }
-    preciosCompra()
-
-function busquedaFiltrada(){
-    const filtro = precios.map(precio => {
-        return `
-                <p class="precio">Precio: ${precio.peso}</p>
-                <div class="comprado">${precio.comprado ? `<button class="boton-comprar">Comprar</button>` : `<span class="adquirido">Adquirido</span>`}</div>
-        `
-    })
-    main.append(filtro)
-}
-
-// function mostrarDatos() {
-//     for(const cuenta of datos){
-//         if(cuenta.experiencia.checked){
-//             alert('Tu nombre de usuario y contraseña son: ' + cuenta.user + 'y ' + cuenta.password + ' . ¡Disfruta de la experiencia!')
-//         } else if(!cuenta.experiencia.checked){
-//             alert('Tu nombre de usuario y contraseña son: ' + cuenta.user + 'y ' + cuenta.password + '. Dado que posees poca experiencia, te recomendamos empezar por la sección "Meditaciones guiadas" y experimentar con aquellas que duren no más de 10 minutos por al menos una semana, esto te ayudará a crear un hábito más sólido')
-//         }
-//     }
-// }
