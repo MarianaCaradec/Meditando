@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <header class="header banner">
+    <header class="banner">
             <div class="logo">
                 <a href="./index.html">
                     <h1>Meditapp</h1>
@@ -27,13 +27,15 @@
 
     <div id="app">
         <form class="ingreso" id="form">
-            <label for="user" class="user">Usuario:</label>
-            <input type="text" class="user" id="user" required><br>
-            <label for="password" class="password">Contraseña:</label>
-            <input type="password" class="password" id="password" required><br>
-            <label for="experiencia" class="checkbox">¿Tienes experiencia?</label>
-            <input type="checkbox" class="checkbox" id="experiencia"><br>
-            <button class="boton-ingreso" id="submit">Ingresar</button>
+            <div class="labels">
+                <label for="user" class="user">Usuario:</label>
+                <input type="text" class="user" id="user" required><br>
+                <label for="password" class="password">Contraseña:</label>
+                <input type="password" class="password" id="password" required><br>
+                <label for="experiencia" class="checkbox">¿Tienes experiencia?</label>
+                <input type="checkbox" class="checkbox" id="experiencia"><br>
+                <button class="boton-ingreso" id="submit">Ingresar</button>
+            </div>
         </form>
 
         <div id="main">

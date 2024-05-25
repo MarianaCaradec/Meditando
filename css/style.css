@@ -6,10 +6,18 @@
 
 body {
     background-color: #B865B8;
+    overflow-x: hidden;
 }
-
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 h1, h2, h3 {
     font-family: "Quicksand", sans-serif;
+    margin: 2rem 0;
+    text-align: center;
 }
 h1 {
     font-size: 3.2rem;
@@ -25,16 +33,10 @@ p{
     font-size: 2.2rem;
 }
 
-.header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .banner {
     background-image: url(./../img/loto-banner.jpg);
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -44,63 +46,139 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
+}
+.logo a {
+    outline: none;
+    text-decoration: none;
+    font-weight: bold;
 }
 .img-logo {
-    width: 5vw;
+    width: 7vw;
 }
 
 .texto {
     font-size: 3.2rem;
     font-family: "Quicksand", sans-serif;
+    margin: 7rem;
 }
 
 .ingreso {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 2rem;
     -webkit-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
     -moz-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
     box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
     width: 50vw;
-    height: 25vh;
-    margin: 2rem;
-    justify-self: center;
-    align-self: center;
+    height: 30vh;
+    margin: 4rem 10rem;
+    text-align: center;
 }
 
-.user, .password, .checkbox, .boton-ingreso {
+.labels {
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+}
+
+.user, .password, .checkbox {
     font-size: 2.4rem;
+    margin: 1rem;
 }
 
-.user {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-
-.password {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-
-.checkbox {
-    grid-column: span;
-    grid-row: 3 / 4;
-}
 .boton-ingreso {
-    grid-column: span;
+    font-size: 1.8rem;
+    background-color: #7a247a;
+    color: beige;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 5%;
 }
 
-.seccion {
+.curso {
     width: 50vw;
+    text-align: center;
+    margin: 1rem;
 }
 
 .img-curso {
-    width: 10rem;
+    width: 15rem;
+    margin: 1rem 0;
+}
+
+.descripcion-curso, .precio-curso, #boton-compra {
+    font-size: 2rem;
+}
+
+.descripcion-curso {
+    text-align: justify;
+}
+
+.precio-curso {
+    font-weight: bold;
+}
+
+#boton-compra {
+    background-color: #7a247a;
+    color: beige;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 5%;
 }
 
 .link-curso {
+    color: beige;
+    font-weight: bold;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
     font-size: 2.4rem;
+    text-align: center;
+    padding: 0 20rem;
+}
+.link-curso:hover {
+    color: #7a247a;
+}
+/* desde desktop a tablet (768 a 1024px) */
+@media screen and (max-width: 1024px) {
+    .texto {
+        margin: 17rem;
+    }
+    #main-no-expertos {
+        padding: 0 2rem;
+    }
+    .link-curso {
+        margin: 3rem 6rem;
+        padding: 0 15rem;
+        font-size: 2rem;
+    }
+}
+
+/* desde tablet a mobile (320 a 768px) */
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 45vh;
+    }
+    .texto {
+        margin: 0 5rem 10rem 5rem;
+    }
+
+    .ingreso {
+        width: 85vw;
+        height: 33vh;
+        margin: 2rem 0;
+    }
+
+    .labels {
+        padding: 3rem 0;
+        margin: 0;
+    }
+
+    .boton-ingreso {
+        padding: 1rem;
+    }
+
+    .link-curso {
+        margin: 1rem;
+        padding: 5rem;
+        font-size: 1.8rem;
+    }
 }
