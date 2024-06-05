@@ -1,3 +1,20 @@
+const darBienvenida = async () => {
+    await Swal.fire({
+        title: "¡Bienvenidx!",
+        imageUrl: "./img/logo.png",
+        imageWidth: 80,
+        imageHeight: 70,
+        imageAlt: "Logo",
+        text: "¿Listx para conocer tu paz interior?",
+        width: "60%",
+        background: "#B865B8",
+        backdrop: "#B865B8",
+        allowOutsideClick: true,
+        allowEnterKey: true
+    });
+}
+darBienvenida()
+
 let main = document.getElementById('main');
 let mainNoExpertos = document.getElementById('main-no-expertos');
 
