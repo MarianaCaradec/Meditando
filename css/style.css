@@ -135,6 +135,10 @@ p{
     border-radius: 5%;
 }
 
+.swal2-popup {
+    background-color: beige;
+}
+
 .link-curso {
     color: beige;
     font-weight: bold;
