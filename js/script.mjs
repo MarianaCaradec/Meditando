@@ -15,10 +15,11 @@ const darBienvenida = () => {
 };
 darBienvenida();
 
-let main = document.getElementById("main");
+// let main = document.getElementById("main");
 let mainNoExpertos = document.getElementById("main-no-expertos");
 
-import { crearMain } from "./js/cursos.js";
+
+import { crearMain } from './cursos.mjs';
 
 const crearMainNoExpertos = () => {
     const textoNoExpertos = document.createElement("h2");
