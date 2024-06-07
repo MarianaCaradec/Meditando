@@ -95,13 +95,8 @@ const agregarCursoCarrito = (cursos) => {
 }
 
 
-// const mostrarCarrito = () => {
-//     contenedorCarrito.style.display = "block";
-// };
-
 const verCarrito = () => {
     if (cursos && cursos.length > 0) {
-        // mostrarCarrito()
         carrito.forEach(curso => {
             crearCursoCarrito(curso)
     })
@@ -111,7 +106,6 @@ const verCarrito = () => {
 const principal = async () => {
     cursos = await fetchCursos()
     agregarCursoCarrito(cursos)
-    // verCarrito()
 }
 
 const crearMainNoExpertos = () => {
@@ -179,4 +173,3 @@ function iniciar() {
 }
 
 iniciar();
-// principal();
