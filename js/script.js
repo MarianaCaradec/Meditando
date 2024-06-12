@@ -15,16 +15,20 @@ const darBienvenida = () => {
 };
 darBienvenida();
 
-let main = document.getElementById("main");
-let mainNoExpertos = document.getElementById("main-no-expertos");
+
+const main = document.getElementById("main");
+const contenedorCarrito = document.getElementById('contenedor-carrito')
+const mainNoExpertos = document.getElementById("main-no-expertos");
+let cursos;
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const fetchCursos = async () => {
     try {
-        const cursos = await fetch("./js/cursos.json")
-        const data = await cursos.json()
-        crearMain(data)
+        const response = await fetch("./js/cursos.json")
+        cursos = await response.json()
+        crearMain(cursos)
     } catch (err) {
-        const error = Swal.fire({
+        Swal.fire({
             icon: "error",
             position: "top-end",
             toast: true,
@@ -35,10 +39,7 @@ const fetchCursos = async () => {
     }
 }
 
-fetchCursos()
-
 const crearMain = (cursos) => {
-    if (cursos && cursos.length > 0) {
     cursos.forEach(curso => {
         const section = document.createElement("div");
         section.className = "curso";
@@ -47,28 +48,70 @@ const crearMain = (cursos) => {
                                 <img class= '${curso.imgClass}'src= ${curso.img} alt= ${curso.imgAlt}>
                                 <p class='${curso.descripcionClass}'>${curso.descripcion}</p>
                                 <p class= '${curso.precioClass}'>${curso.precio}</p>
-                                <button id= 'boton-compra'>Comprar</button>
+                                <button class= 'boton-agregar' data-id='${curso.id}'>Agregar al carrito</button>
                                 `;
 
-    const comprar = section.querySelector("#boton-compra");
-    comprar.addEventListener("click", (curso) => {
-        if (!curso.comprado) {
-        curso.comprado = true;
-        comprar.disabled = true;
-        const mensaje = Swal.fire({
-            icon: "success",
-            position: "top-end",
-            toast: true,
-            title: "El curso ha sido adquirido",
-            showConfirmButton: false,
-            timer: 2000
-        });
-        main.append(mensaje)
-        }
-    });
     main.append(section);
     });
+}
+
+const crearCursoCarrito = (curso) => {
+        const cursoAgregado = document.createElement("div");
+        cursoAgregado.className = "curso-agregado";
+        cursoAgregado.id = `curso-${curso.id}`;
+        cursoAgregado.innerHTML = `
+                                <h3>${curso.titulo}</h3>
+                                <img class= '${curso.imgClass}'src= ${curso.img} alt= ${curso.imgAlt}>
+                                <p class='${curso.descripcionClass}'>${curso.descripcion}</p>
+                                <p class= '${curso.precioClass}'>${curso.precio}</p>
+                                `;
+
+    contenedorCarrito.append(cursoAgregado);
+}
+
+const agregarCursoCarrito = (cursos) => {
+    const botonesAgregar = document.querySelectorAll('.boton-agregar');
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', (event) => {
+            const cursoId = event.target.getAttribute('data-id');
+                const cursoSeleccionado = cursos.find(curso => curso.id === cursoId);
+                if (cursoSeleccionado) {
+                    event.target.disabled = true;
+                    carrito.push(cursoSeleccionado);
+                    localStorage.setItem("carrito", JSON.stringify(carrito));
+                    crearCursoCarrito(cursoSeleccionado)
+                    
+                    Swal.fire({
+                        icon: "success",
+                        position: "top-end",
+                        toast: false,
+                        title: "El curso ha sido agregado al carrito",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+        })
+    })
+}
+
+
+// const mostrarCarrito = () => {
+//     contenedorCarrito.style.display = "block";
+// };
+
+const verCarrito = () => {
+    if (cursos && cursos.length > 0) {
+        // mostrarCarrito()
+        carrito.forEach(curso => {
+            crearCursoCarrito(curso)
+    })
     }
+}
+
+const principal = async () => {
+    cursos = await fetchCursos()
+    agregarCursoCarrito(cursos)
+    // verCarrito()
 }
 
 const crearMainNoExpertos = () => {
@@ -136,3 +179,4 @@ function iniciar() {
 }
 
 iniciar();
+// principal();
