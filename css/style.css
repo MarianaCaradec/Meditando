@@ -75,6 +75,23 @@ p{
     margin: 7rem;
 }
 
+nav {
+    text-align: center;
+}
+nav a {
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5%;
+    color: beige;
+    background-color: #B865B8;
+    padding: .5rem;
+    font-weight: bold;
+    font-style: none;
+}
+
 .ingreso {
     -webkit-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
     -moz-box-shadow: 0px 0px 26px -10px rgba(153,5,153,1);
